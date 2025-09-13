@@ -1,0 +1,439 @@
+/* Component-specific styles for SolanaSwift */
+
+/* Button Components */
+.btn-primary {
+  @apply bg-gradient-to-r from-purple-500 to-blue-600 text-white font-semibold;
+  @apply hover:from-purple-600 hover:to-blue-700 focus:ring-purple-500;
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply transition-all duration-200 transform hover:scale-105 active:scale-95;
+}
+
+.btn-secondary {
+  @apply bg-gray-100 text-gray-900 font-semibold;
+  @apply hover:bg-gray-200 focus:ring-gray-500;
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply transition-colors duration-200;
+}
+
+.btn-danger {
+  @apply bg-red-500 text-white font-semibold;
+  @apply hover:bg-red-600 focus:ring-red-500;
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply transition-colors duration-200;
+}
+
+.btn-ghost {
+  @apply bg-transparent text-gray-700 font-medium;
+  @apply hover:bg-gray-100 focus:ring-gray-500;
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply transition-colors duration-200;
+}
+
+.btn-loading {
+  @apply relative overflow-hidden;
+}
+
+.btn-loading::before {
+  content: '';
+  @apply absolute inset-0 bg-white bg-opacity-20;
+  animation: shimmer 2s infinite linear;
+  transform: translateX(-100%);
+}
+
+@keyframes shimmer {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* Input Components */
+.input-primary {
+  @apply w-full px-4 py-3 border border-gray-200 rounded-xl;
+  @apply focus:ring-2 focus:ring-purple-500 focus:border-transparent;
+  @apply transition-all duration-200 bg-white;
+  @apply placeholder-gray-400;
+}
+
+.input-error {
+  @apply border-red-300 focus:ring-red-500 bg-red-50;
+}
+
+.input-success {
+  @apply border-green-300 focus:ring-green-500 bg-green-50;
+}
+
+.input-disabled {
+  @apply bg-gray-100 cursor-not-allowed opacity-60;
+}
+
+/* Card Components */
+.card {
+  @apply bg-white rounded-2xl shadow-lg border border-gray-100;
+  @apply transition-all duration-300;
+}
+
+.card-hover {
+  @apply hover:shadow-xl hover:-translate-y-1;
+}
+
+.card-interactive {
+  @apply cursor-pointer hover:shadow-lg hover:border-purple-200;
+  @apply transition-all duration-200;
+}
+
+.card-selected {
+  @apply border-purple-500 bg-purple-50 shadow-lg;
+}
+
+/* Token Components */
+.token-item {
+  @apply flex items-center gap-3 p-3 rounded-lg;
+  @apply transition-all duration-200 cursor-pointer;
+  @apply hover:bg-gray-50 hover:translate-x-1;
+}
+
+.token-item-selected {
+  @apply bg-purple-50 border-purple-200;
+}
+
+.token-logo {
+  @apply w-10 h-10 rounded-full border-2 border-white shadow-sm;
+  @apply transition-transform duration-200 hover:scale-110;
+}
+
+.token-selector-modal {
+  @apply fixed inset-0 z-50 flex items-center justify-center;
+  @apply bg-black bg-opacity-50 backdrop-blur-sm;
+}
+
+.token-selector-content {
+  @apply bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4;
+  @apply max-h-[80vh] overflow-hidden;
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Swap Components */
+.swap-container {
+  @apply bg-white rounded-2xl shadow-lg p-6;
+  @apply border border-gray-100;
+}
+
+.swap-input-container {
+  @apply relative bg-gray-50 rounded-xl p-4 border-2 border-transparent;
+  @apply focus-within:border-purple-300 focus-within:bg-white;
+  @apply transition-all duration-200;
+}
+
+.swap-input {
+  @apply w-full bg-transparent text-right text-lg font-medium;
+  @apply placeholder-gray-400 outline-none;
+}
+
+.swap-token-display {
+  @apply flex items-center gap-2 text-gray-900 font-semibold;
+}
+
+.swap-switch-btn {
+  @apply p-3 bg-white border-2 border-gray-200 rounded-full;
+  @apply hover:border-purple-300 hover:bg-purple-50;
+  @apply transition-all duration-200 transform hover:rotate-180;
+  @apply focus:outline-none focus:ring-2 focus:ring-purple-500;
+}
+
+.swap-quote-container {
+  @apply bg-blue-50 border border-blue-200 rounded-lg p-4;
+  @apply space-y-2 text-sm;
+}
+
+.swap-quote-loading {
+  @apply animate-pulse space-y-2;
+}
+
+.swap-quote-error {
+  @apply bg-red-50 border-red-200 text-red-600;
+}
+
+/* Notification Components */
+.notification {
+  @apply fixed z-50 max-w-md w-full mx-4;
+  @apply flex items-center gap-3 p-4 rounded-lg shadow-lg;
+  @apply text-white backdrop-blur-sm border border-white border-opacity-20;
+  animation: notificationSlideIn 0.3s ease-out;
+}
+
+.notification-success {
+  @apply bg-green-500;
+}
+
+.notification-error {
+  @apply bg-red-500;
+}
+
+.notification-warning {
+  @apply bg-yellow-500;
+}
+
+.notification-info {
+  @apply bg-blue-500;
+}
+
+@keyframes notificationSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.notification-exit {
+  animation: notificationSlideOut 0.3s ease-in forwards;
+}
+
+@keyframes notificationSlideOut {
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+/* Wallet Components */
+.wallet-connect-container {
+  @apply text-center p-8 bg-white rounded-2xl shadow-lg;
+  @apply border border-gray-100;
+}
+
+.wallet-icon {
+  @apply w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center;
+  @apply bg-gradient-to-br from-purple-500 to-blue-600;
+}
+
+.wallet-address {
+  @apply font-mono text-sm bg-gray-100 px-3 py-2 rounded-lg;
+  @apply border border-gray-200;
+}
+
+.wallet-balance-item {
+  @apply flex items-center gap-3 p-3 rounded-lg;
+  @apply bg-gray-50 hover:bg-gray-100;
+  @apply transition-colors duration-200;
+}
+
+/* Loading States */
+.skeleton {
+  @apply animate-pulse bg-gray-200 rounded;
+}
+
+.skeleton-text {
+  @apply skeleton h-4;
+}
+
+.skeleton-title {
+  @apply skeleton h-6;
+}
+
+.skeleton-avatar {
+  @apply skeleton w-10 h-10 rounded-full;
+}
+
+.skeleton-button {
+  @apply skeleton h-10 w-24 rounded-lg;
+}
+
+/* Loading Spinner */
+.spinner {
+  @apply w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin;
+}
+
+.spinner-lg {
+  @apply w-8 h-8 border-4;
+}
+
+/* Header Components */
+.header {
+  @apply bg-white bg-opacity-80 backdrop-blur-sm border-b border-gray-200;
+  @apply sticky top-0 z-40;
+}
+
+.header-logo {
+  @apply w-10 h-10 rounded-lg flex items-center justify-center shadow-lg;
+  @apply bg-gradient-to-br from-purple-500 to-blue-600;
+}
+
+/* Footer Components */
+.footer {
+  @apply border-t border-gray-200 bg-white bg-opacity-50 backdrop-blur-sm;
+}
+
+.footer-link {
+  @apply text-gray-600 hover:text-purple-600 transition-colors;
+  @apply flex items-center gap-2;
+}
+
+.footer-status-indicator {
+  @apply w-2 h-2 rounded-full;
+}
+
+.footer-status-online {
+  @apply bg-green-500;
+}
+
+.footer-status-offline {
+  @apply bg-red-500;
+}
+
+.footer-status-updating {
+  @apply bg-blue-500 animate-pulse;
+}
+
+/* Sidebar Components */
+.sidebar {
+  @apply space-y-6;
+}
+
+.sidebar-section {
+  @apply bg-white rounded-2xl shadow-lg p-6;
+}
+
+.sidebar-title {
+  @apply text-lg font-bold text-gray-900 mb-4;
+  @apply flex items-center gap-2;
+}
+
+/* Market Data Components */
+.market-item {
+  @apply flex items-center gap-3 p-3 rounded-lg;
+  @apply hover:bg-gray-50 transition-colors duration-200;
+}
+
+.price-change-positive {
+  @apply text-green-600 font-medium;
+}
+
+.price-change-negative {
+  @apply text-red-600 font-medium;
+}
+
+.price-change-neutral {
+  @apply text-gray-500;
+}
+
+/* Network Status */
+.status-indicator {
+  @apply w-2 h-2 rounded-full;
+}
+
+.status-online {
+  @apply bg-green-500;
+}
+
+.status-offline {
+  @apply bg-red-500;
+}
+
+.status-loading {
+  @apply bg-blue-500 animate-pulse;
+}
+
+.status-badge {
+  @apply text-xs font-medium px-2 py-1 rounded;
+}
+
+.status-badge-success {
+  @apply bg-green-100 text-green-700;
+}
+
+.status-badge-error {
+  @apply bg-red-100 text-red-700;
+}
+
+.status-badge-warning {
+  @apply bg-yellow-100 text-yellow-700;
+}
+
+.status-badge-info {
+  @apply bg-blue-100 text-blue-700;
+}
+
+/* Responsive Utilities */
+@media (max-width: 640px) {
+  .mobile-hidden {
+    @apply hidden;
+  }
+  
+  .mobile-full {
+    @apply w-full;
+  }
+  
+  .mobile-stack {
+    @apply flex-col space-y-4 space-x-0;
+  }
+}
+
+@media (max-width: 768px) {
+  .tablet-hidden {
+    @apply hidden;
+  }
+  
+  .tablet-stack {
+    @apply flex-col;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    @apply hidden;
+  }
+  
+  .print-break {
+    page-break-before: always;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .card {
+    @apply border-2 border-black;
+  }
+  
+  .btn-primary {
+    @apply bg-black text-white border-2 border-white;
+  }
+  
+  .input-primary {
+    @apply border-2 border-black;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .card-hover {
+    @apply transform-none;
+  }
+  
+  .token-item {
+    @apply transform-none;
+  }
+  
+  .swap-switch-btn {
+    @apply transform-none;
+  }
+  
+  * {
+    @apply transition-none;
+  }
+}
